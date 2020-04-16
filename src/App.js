@@ -1,23 +1,30 @@
-import React from 'react';
-import NavBar from './navbar'
+import React, { Component } from 'react';
+import './App.css';
+import MoviePage from './pages/MoviePage'
+import Spinner from "./HOC"
 
-function App() {
-  const nav = [
-    { title: 'home', lien: '#home', },
-    {
-      title: 'service', lien: '#service', subelement: [
-        { title: 'For entrepeneurs', lien: "#entrepeneurs" },
-        { title: 'For students', lien: '#students' },
-        { title: 'For hobbysties', lien: '#hobbysties' }]
-    },
-    { title: 'contact', lien: '#contact' }
-  ]
-  return (
-    <div className="App">
-      <div class="container center">
-        <NavBar nav={nav} />
+export default class App extends Component {
+
+  state = {
+    isLoading: true
+  }
+
+  componentDidMount() {
+    setTimeout(
+      () => {
+        this.setState({
+          isLoading: !this.state.isLoading
+        })
+      }, 3000
+    )
+  }
+  render() {
+    return (
+      <div className="App" >
+        {
+          this.state.isLoading ? <Spinner/>: <MoviePage />
+        }
       </div>
-    </div>
-  );
+    )
+  }
 }
-export default App;
