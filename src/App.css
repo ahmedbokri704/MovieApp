@@ -1,42 +1,48 @@
-.App {
-    text-align: center;
-  }
-  .card{
-    border: 1px solid black;
-    width: 224px;
-    height: 500px;
-    margin: 30px;
-  }
-  .cards{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 50px;
-  }
-  .card-img-top{
-    width: 224px;
-    height: 340px;
-  }
-  .card-body{
-    height: 15px;
-  }
-  .filter-container{
-    margin-top: 35px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .form-container{
-    flex:2;
-    padding-left: 50px;
-  }
-  .filer-rate{
-    flex:1;
-  }
-  .Mystars{
-    cursor: pointer;
-  }
-  .img-plus{
-      height: 50px;
-      width: 50px;
-      padding-top: 10px;
-  }
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+.main_menu> li {
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  padding: 0px 20px;
+  
+}
+ul.submenu{
+    display: none;
+    position: absolute;
+    
+}
+.dropdown:hover .submenu{
+    display: block;
+}
+ul.main_menu a {
+  text-decoration: none;
+  color: black;
+  text-transform: capitalize;
+  font-weight: 500;
+  
+  
+}
+
+ul.submenu li {
+  text-align: left;
+  list-style: none;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  
+}
+li a:hover{
+  color: #36d3ec;
+}
+ul.submenu {
+  padding-left: 0;
+  width: 150px;
+  left: -20px;
+  padding: 20px;
+  border-style: solid;
+  border-color: #36d3ec;
+  border-radius: 5px;
+  padding-top: 20px;
+}
