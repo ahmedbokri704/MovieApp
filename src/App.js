@@ -1,30 +1,22 @@
-import React, { Component } from 'react';
-import './App.css';
-import MoviePage from './pages/MoviePage'
-import Spinner from "./HOC"
+import React, { useState } from 'react';
+import { movies } from "./constant/data"
+import Movielist from './component/movielist';
 
-export default class App extends Component {
+const App = () => {
+  const [listmovies, setListmovies] = useState(movies)
+  const [star, setStar] = useState(0)
 
-  state = {
-    isLoading: true
+  const Addmovieparent = (newmovie) => {
+    setListmovies([...listmovies, newmovie])
   }
-
-  componentDidMount() {
-    setTimeout(
-      () => {
-        this.setState({
-          isLoading: !this.state.isLoading
-        })
-      }, 3000
-    )
+  const Starsearchparent = (star) => {
+    setStar(star)
   }
-  render() {
-    return (
-      <div className="App" >
-        {
-          this.state.isLoading ? <Spinner/>: <MoviePage />
-        }
-      </div>
-    )
-  }
+  return (
+    <div>
+      <Movielist listmovies={listmovies} Addmovieparent={Addmovieparent} Starsearchparent={Starsearchparent} starnumber={star}/>
+    </div>
+  )
 }
+
+export default App
