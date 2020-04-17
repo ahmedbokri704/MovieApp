@@ -1,17 +1,30 @@
-import React from 'react';
-
+import React, { Component } from 'react'
+import Spinner from './components/spinner';
+import MoviePage from './page/movie-page';
 import './App.css';
 
-import MoviePage from './page/movie-page';
+export default class App extends Component {
 
+  state = {
+    isLoading: true
+  }
 
-function App() {
-  return (
-    <div className="App">
-      **My Movie App**
-        <MoviePage />
-    </div>
-  );
+  componentDidMount() {
+    setTimeout(
+      () => {
+        this.setState({
+          isLoading: !this.state.isLoading
+        })
+      }, 3000
+    )
+  }
+
+  render() {
+    return (
+      <div className="App" >
+        **My Movie App**
+        {this.state.isLoading ? <Spinner /> : <MoviePage />}
+      </div>
+    )
+  }
 }
-
-export default App;
