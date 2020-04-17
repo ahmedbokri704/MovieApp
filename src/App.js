@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
-import { movies } from "./constant/data"
-import Movielist from './component/movielist';
+import React from 'react';
 
-const App = () => {
-  const [listmovies, setListmovies] = useState(movies)
-  const [star, setStar] = useState(0)
+import './App.css';
 
-  const Addmovieparent = (newmovie) => {
-    setListmovies([...listmovies, newmovie])
-  }
-  const Starsearchparent = (star) => {
-    setStar(star)
-  }
+import MoviePage from './page/movie-page';
+
+
+function App() {
   return (
-    <div>
-      <Movielist listmovies={listmovies} Addmovieparent={Addmovieparent} Starsearchparent={Starsearchparent} starnumber={star}/>
+    <div className="App">
+      **My Movie App**
+        <MoviePage />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
